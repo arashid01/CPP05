@@ -37,6 +37,6 @@ public:
 
 };
 
-std::ostream &os(std::ostream &os, Form const &form);
+std::ostream &operator<<(std::ostream &os, Form const &form);
 
 #endif
