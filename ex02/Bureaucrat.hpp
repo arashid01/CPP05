@@ -5,6 +5,8 @@
 #include <iostream>
 #include <exception>
 
+class AForm;
+
 class Bureaucrat{
 
 	const std::string	_name;
