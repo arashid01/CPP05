@@ -10,11 +10,11 @@ int main()
 	Intern someRandomIntern;
 	Bureaucrat boss("Boss", 1);
 
-	AForm* form;
+	AForm* form = NULL;
 
 	try
 	{
-		form = someRandomIntern.makeForm("no", "home");
+		form = someRandomIntern.makeForm("ShrubberyCreationForm", "home");
 		boss.signAForm(*form);
 		boss.executeForm(*form);
 		delete form;

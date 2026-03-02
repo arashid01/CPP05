@@ -41,5 +41,9 @@ AForm* Intern::makeForm(const std::string formName, const std::string formTarget
 	}
 
 	std::cout << "The form " << formName << " does not exist" << std::endl;
-	return (NULL);
+	throw (FormDoesNotExistException());
+}
+
+const char* Intern::FormDoesNotExistException::what() const throw() {
+	return ("Intern can't create this form: unknown form name");
 }

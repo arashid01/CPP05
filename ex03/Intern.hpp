@@ -13,6 +13,11 @@ public:
 	Intern &operator=(const Intern &other);
 
 	AForm *makeForm(const std::string formName, const std::string formTarget);
+
+	class FormDoesNotExistException : public std::exception {
+	public:
+		virtual const char* what() const throw();
+	};
 };
 
 #endif
