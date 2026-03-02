@@ -21,6 +21,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &o
 void RobotomyRequestForm::executeAction() const {
 	int rand_num;
 
+	srand(time(NULL));
 	rand_num = rand() % 2;
 	if (rand_num == 1)
 		std::cout << "Bzzzzz bzzz " << getName() << " has been robotomized successfully" << std::endl;
