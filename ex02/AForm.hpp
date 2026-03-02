@@ -8,7 +8,7 @@
 class Bureaucrat;
 
 class AForm {
-
+protected:
 	const std::string	_name;
 	bool				_signed;
 	const int			_sign_grade;
@@ -17,7 +17,7 @@ class AForm {
 
 public:
 	AForm();
-	~AForm();
+	virtual ~AForm();
 
 	AForm(const std::string name, const int sign_grade, const int execute_grade);
 	AForm(const AForm &other);
