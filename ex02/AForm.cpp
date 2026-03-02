@@ -5,7 +5,12 @@ AForm::AForm() : _name("default"), _signed(false), _sign_grade(150), _execute_gr
 
 AForm::~AForm() {}
 
-AForm::AForm(const std::string name, const int sign_grade, const int execute_grade) : _name(name), _signed(false), _sign_grade(sign_grade), _execute_grade(execute_grade) {}
+AForm::AForm(const std::string name, const int sign_grade, const int execute_grade) : _name(name), _signed(false), _sign_grade(sign_grade), _execute_grade(execute_grade) {
+	if (_sign_grade < 1 || _execute_grade < 1)
+		throw (GradeTooHighException());
+	else if (_sign_grade > 150 || _execute_grade > 150)
+		throw (GradeTooLowException());
+}
 
 AForm::AForm(const AForm &other) : _name(other._name), _signed(other._signed), _sign_grade(other._sign_grade), _execute_grade(other._execute_grade) {}
 
