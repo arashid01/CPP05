@@ -14,7 +14,7 @@ int main()
 
 	try
 	{
-		form = someRandomIntern.makeForm("shrubbery creation", "home");
+		form = someRandomIntern.makeForm("no", "home");
 		boss.signAForm(*form);
 		boss.executeForm(*form);
 		delete form;

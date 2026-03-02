@@ -15,24 +15,31 @@ Intern &Intern::operator=(const Intern &other) {
 	return (*this);
 }
 
-AForm *Intern::makeForm(const std::string formName, const std::string formTarget) {
-	std::string availableForms[] = {"ShrubberyCreationForm", "RobotomyRequestForm", "PresidentialPardonForm"};
+AForm* Intern::makeForm(const std::string formName, const std::string formTarget) {
+	std::string availableForms[3] = {
+		"ShrubberyCreationForm",
+		"RobotomyRequestForm",
+		"PresidentialPardonForm"
+	};
 
-	for (int i = 0; i < 3 && formName != availableForms[i]; i++)
+	for (int i = 0; i < 3; i++)
 	{
-		switch (i) {
-		case 0:
+		if (formName == availableForms[i])
+		{
 			std::cout << "Intern creates " << formName << std::endl;
-			return (new ShrubberyCreationForm(formTarget));
-		case 1:
-			std::cout << "Intern creates " << formName << std::endl;
-			return (new RobotomyRequestForm(formTarget));
-		case 2:
-			std::cout << "Intern creates " << formName << std::endl;
-			return (new PresidentialPardonForm (formTarget));
-		default:
-			std::cout << "The Form " << formName << " does not exist" << std::endl;
+
+			switch (i)
+			{
+				case 0:
+					return (new ShrubberyCreationForm(formTarget));
+				case 1:
+					return (new RobotomyRequestForm(formTarget));
+				case 2:
+					return (new PresidentialPardonForm(formTarget));
+			}
 		}
 	}
+
+	std::cout << "The form " << formName << " does not exist" << std::endl;
 	return (NULL);
 }
