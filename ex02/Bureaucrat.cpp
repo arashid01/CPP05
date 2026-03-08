@@ -38,15 +38,15 @@ const char* Bureaucrat::GradeTooLowException::what() const throw() {
 }
 
 void Bureaucrat::IncrementGrade() {
-	_grade--;
-	if (_grade < 1)
+	if (_grade - 1 < 1)
 		throw GradeTooHighException();
+	_grade--;
 }
 
 void Bureaucrat::DecrementGrade() {
-	_grade++;
-	if (_grade > 150)
+	if (_grade + 1 > 150)
 		throw GradeTooLowException();
+	_grade++;
 }
 
 void Bureaucrat::signAForm(AForm &form)
